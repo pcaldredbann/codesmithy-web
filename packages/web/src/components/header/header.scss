@@ -1,0 +1,46 @@
+#main-header {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid grey;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    li {
+      align-content: center;
+      justify-content: center;
+      flex: 1;
+      font-size: 1.2em;
+      background-color: #000;
+      transition: 0.3s;
+      &:hover,
+      &:focus {
+        background-color: #222;
+      }
+      .nav-brand {
+        @media only screen and (min-width: 600px) {
+        }
+      }
+      a {
+        display: flex;
+        padding: 2em 0;
+        @media only screen and (max-width: 600px) {
+          padding: 1.2em 0;
+        }
+        justify-content: center;
+        font-size: 0.8em;
+        vertical-align: middle;
+        svg {
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+}
+
+.hide-sm {
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}

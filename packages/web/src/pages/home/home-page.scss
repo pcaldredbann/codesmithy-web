@@ -1,0 +1,90 @@
+@import "../../variables.scss";
+
+#main-feature {
+  background-image: url(../../assets/images/banner.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  min-height: 360px;
+  display: flex;
+  justify-content: flex-end;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+  #main-feature-content {
+    display: flex;
+    flex-basis: 50%;
+    border: 2px solid #666;
+    margin: 2em;
+    padding: 1em;
+
+    h2 {
+      margin: 0;
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+.sub-feature-panel-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  @media only screen and (min-width: 601px) {
+    flex-direction: row;
+  }
+  .sub-feature-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+    height: 350px;
+    flex: 1;
+    @media only screen and (min-width: 600px) {
+      flex-basis: 50%;
+    }
+    h2 {
+      display: flex;
+      align-self: flex-start;
+      justify-self: center;
+      margin: 8px 16px;
+    }
+    p {
+      display: flex;
+      flex: 2;
+      padding: 8px 16px;
+    }
+    .read-more {
+      display: flex;
+      align-self: flex-end;
+      transition: 0.3s;
+      margin: 12px;
+      &:hover,
+      &:focus {
+        background-color: $color-blue;
+      }
+      a {
+        display: flex;
+        border: 1px solid black;
+        background-color: rgba(33, 33, 33, 0.6);
+        padding: 1em;
+        svg {
+          margin-left: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+@for $ix from 1 through 9 {
+  .bg-red.alpha-#{$ix} {
+    background-color: rgba(224, 26, 79, (($ix * 10) / 100));
+  }
+  .bg-orange.alpha-#{$ix} {
+    background-color: rgba(241, 89, 70, (($ix * 10) / 100));
+  }
+  .bg-yellow.alpha-#{$ix} {
+    background-color: rgba($color-yellow, (($ix * 10) / 100));
+  }
+  .bg-blue.alpha-#{$ix} {
+    background-color: rgba($color-blue, (($ix * 10) / 100));
+  }
+}
