@@ -1,9 +1,9 @@
-import * as React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as Icons from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as React from "react";
 import "./home-page.scss";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const [contactName, setContactName] = React.useState("");
   const [contactDetail, setContactDetail] = React.useState("");
   const [contactNameError, setContactNameError] = React.useState("");
@@ -14,10 +14,10 @@ const HomePage = () => {
     if (contactDetail) setContactDetailError("");
   }, [contactName, contactDetail]);
 
-  const validateAndSend = (e: React.FormEvent) => {
+  const validateAndSend = (e: React.FormEvent): void => {
     e.preventDefault();
-    if (!contactName) setContactNameError(`You haven't provided a name`);
-    if (!contactDetail) setContactDetailError(`You haven't provided a contact`);
+    if (!contactName) setContactNameError("You haven't provided a name");
+    if (!contactDetail) setContactDetailError("You haven't provided a contact");
     // TODO: do the sendy stuff!
   };
 
@@ -28,7 +28,7 @@ const HomePage = () => {
           <form
             id="contact_form"
             name="contact-form"
-            onSubmit={(e: React.FormEvent) => validateAndSend(e)}
+            onSubmit={(e) => validateAndSend(e)}
           >
             <h2 className="form-title">Get In Touch!</h2>
             <p>
@@ -40,7 +40,7 @@ const HomePage = () => {
                 type="text"
                 name="name"
                 value={contactName}
-                onChange={e => setContactName(e.target.value)}
+                onChange={(e) => setContactName(e.target.value)}
                 placeholder="Your name"
               />
               <span
@@ -55,9 +55,7 @@ const HomePage = () => {
                 type="text"
                 name="detail"
                 value={contactDetail}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setContactDetail(e.target.value)
-                }
+                onChange={(e) => setContactDetail(e.target.value)}
                 placeholder="Your contact details"
               />
               <span
